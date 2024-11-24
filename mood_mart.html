@@ -1,0 +1,85 @@
+<div class="floating_btn">
+  <a target="_blank" href="https://wa.me/+201011131109">
+    <div class="contact_icon">
+      <i class="fa-brands fa-whatsapp my-float"></i>
+    </div>
+  </a>
+  <p class="text_icon"></p>
+  <span class="hide_btn" onclick="hideWhatsAppButton()"><i class="fa-solid fa-circle-xmark"></i></span>
+</div>
+<style>
+  footer p b span,
+  footer font,
+  footer span b,
+  .footer-widget p b span,
+  .footer-widget font,
+  .footer-widget span b {
+    color: #f2f3f8 !important;
+  }
+
+  /*
+  *******************************************************
+  ******************** Sider Images *********************
+  *******************************************************
+  */
+
+  .home-slider.slider-full .carousel-box .img-fit {
+    object-fit: cover !important;
+    height: 80vh !important;
+  }
+  #section_home_categories {
+    background-color: #744188 !important;
+  }
+
+</style>
+<script>
+  function hideWhatsAppButton() {
+    var floatingBtn = document.querySelector('.floating_btn');
+    floatingBtn.style.display = 'none';
+  }
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var htmlDir = document.documentElement.getAttribute('dir');
+    var aizDemoNav = document.querySelector('.aiz-demo-nav');
+
+    if (aizDemoNav) {
+      if (htmlDir === 'rtl') {
+        aizDemoNav.style.right = 'auto';
+        aizDemoNav.style.left = '5px';
+      } else {
+        aizDemoNav.style.right = '5px';
+        aizDemoNav.style.left = 'auto';
+      }
+    }
+  });
+</script>
+
+<script>
+  document.getElementById('phone-code').addEventListener('input', function (e) {
+    this.value = this.value.replace(/^0+/, '');
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all category containers
+    const categoryContainers = document.querySelectorAll('.featured-cat .carousel-box .position-relative');
+
+    categoryContainers.forEach(container => {
+      // Select the image and the link
+      const img = container.querySelector('img');
+      const link = container.querySelector('.home-category-name');
+
+      if (img && link) {
+        // Create a new anchor element
+        const newLink = document.createElement('a');
+        newLink.href = link.href;
+
+        // Move the image into the new anchor element
+        img.parentNode.insertBefore(newLink, img);
+        newLink.appendChild(img);
+      }
+    });
+  });
+</script>
